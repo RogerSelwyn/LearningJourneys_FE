@@ -13,20 +13,9 @@
             <div >
                 <h3>Select focus area...</h3>
                 <ul>
-                    <li><a href="#" onclick="toggleSub(&#39;Environment&#39;, this); return false;">Environment</a></li>
-                    <li><a href="#" onclick="toggleSub(&#39;Construction&#39;, this); return false;">Construction</a></li>
-                    <li><a href="#" onclick="toggleSub(&#39;Green&#39;, this); return false;">Green</a></li>
-                    <li><a href="#" onclick="toggleSub(&#39;Computing&#39;, this); return false;">Computing</a></li>
-                    <li><a href="#" onclick="toggleSub(&#39;Energy&#39;, this); return false;">Energy</a></li>
-                    <li><a href="#" onclick="toggleSub(&#39;Music&#39;, this); return false;">Music</a></li>
-                    <li><a href="#" onclick="toggleSub(&#39;Film and TV&#39;, this); return false;">Film and TV</a></li>
-                    <li><a href="#" onclick="toggleSub(&#39;Electronics&#39;, this); return false;">Electronics</a></li>
-                    <li><a href="#" onclick="toggleSub(&#39;Sport&#39;, this); return false;">Sport</a></li>
-                    <li><a href="#" onclick="toggleSub(&#39;Food&#39;, this); return false;">Food</a></li>
-                    <li><a href="#" onclick="toggleSub(&#39;Transport&#39;, this); return false;">Transport</a></li>
-                    <li><a href="#" onclick="toggleSub(&#39;Beauty&#39;, this); return false;">Beauty</a></li>
-                    <li><a href="#" onclick="toggleSub(&#39;Medicine&#39;, this); return false;">Medicine</a></li>
-                    <li><a href="#" onclick="toggleSub(&#39;Space&#39;, this); return false;">Space</a></li>
+                    {{#each careers}}
+                        <li><a href="#" onclick="toggleSub(&#39;Environment&#39;, this); return false;">{{name}}</a></li>
+                    {{/each}}
                 </ul>
                 {{!-- <button class="purple-btn" onclick="goForSearch()" >Help me find my career &gt;</button> --}}
             </div>
@@ -38,28 +27,23 @@
                     <ul class="top-layer-nav-list">
                         <li><a href="#">Resource Type</a>
                             <ul class="menu_330">
-                                <li><a href="/about-us/overview-for-employers/">Activity Plan</a></li>
-                                <li><a href="/about-us/overview-for-educators/">Challenge Days</a></li>
-                                <li><a href="/about-us/overview-for-educators/">Local Fairs</a></li>
-                                <li><a href="/about-us/overview-for-educators/">National Fairs</a></li>
-                                <li><a href="/about-us/overview-for-employers/">Site Visits</a></li>
-                                <li><a href="/about-us/overview-for-employers/">STEM Engage</a></li>
+                                {{#each resourcetypes}}
+                                    <li><a href="/about-us/overview-for-employers/">{{name}}</a></li>
+                                {{/each}}
                             </ul>
                         </li>
                         <li><a href="#">Age Group</a>
                             <ul class="menu_330">
-                                <li><a href="/about-us/overview-for-employers/">4-6</a></li>
-                                <li><a href="/about-us/overview-for-educators/">7-10</a></li>
-                                <li><a href="/about-us/overview-for-educators/">11-14</a></li>
-                                <li><a href="/about-us/overview-for-educators/">15-18</a></li>
+                                {{#each agegroups}}
+                                    <li><a href="/about-us/overview-for-employers/">{{name}}</a></li>
+                                {{/each}}
                             </ul>
                         </li>
                         <li><a href="#">Distance Away</a>
                             <ul class="menu_330">
-                                <li><a href="/about-us/overview-for-employers/">0-50</a></li>
-                                <li><a href="/about-us/overview-for-educators/">51-100</a></li>
-                                <li><a href="/about-us/overview-for-educators/">101-200</a></li>
-                                <li><a href="/about-us/overview-for-educators/">201-</a></li>
+                                {{#each distances}}
+                                    <li><a href="/about-us/overview-for-employers/">{{name}}</a></li>
+                                {{/each}}
                             </ul>
                         </li>
                     </ul>
@@ -68,10 +52,9 @@
             <div class="career-rip"></div>
         </div>
         <div class="article-column eng-article-column">
-            {{> article}}        
-            {{> article}}        
-            {{> article}}        
-            {{> article}}        
+            {{#each articles}}
+                {{> article}} 
+            {{/each}}
         </div>  
         {{> footer}}
 

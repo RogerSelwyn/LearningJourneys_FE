@@ -1,17 +1,17 @@
 <article>
     <div class="eng-article-resource">
-        <div class="eng-article-resource-text" >Activity Plan</div>
+        <div class="eng-article-resource-text">{{activitytype}}</div>
     </div>
     <div class="article-content">
-        <h2>Tomorrow's Engineers Activity Pack - Cargo Drop</h2>
-        <p><p>These activities aim to introduce students, aged 11-14, to different sectors of engineering and the engineering principles involved. Each of the challenges are fun and hands-on and can be run easily in the classroom or in science clubs! <br /><br /> Cargo Drop - This activity will help pupils to understand the principles of forces and motion as well as give them an appreciation of how to combine materials to protect an object or strengthen a structure.</p></p>
+        <h2>{{title}}</h2>
+        <p>{{{description}}}</p>
     </div>
     <div class="article-image">
         <a href="">
-            <img alt="Tomorrow&#39;s Engineers Activity Pack - Cargo Drop" src="/images/thumb-te-activity-airbus-cargo-drop-dec-2014-1.jpg"></img>
+            <img alt="{{title}}" src="{{imageurl}}"></img>
         </a>
     </div>
-    <a class="orange-btn download-link eng-stars" href="/feedback" onclick="GoToResource(@article.ContentId)" ><img src="/images/stars-25.png" alt="Rating"></a>        
+    <a class="orange-btn download-link eng-stars" href="/feedback" onclick="GoToResource(@article.ContentId)" ><img src="/images/stars-{{rating}}.png" alt="{{rating}} stars"></a>        
     <a class="orange-btn download-link" href="/feedback" onclick="GoToResource(@article.ContentId)" >Review ></a>        
     <a class="orange-btn download-link" href="/readmore" onclick="GoToResource(@article.ContentId)" >Read More ></a>        
 </article>

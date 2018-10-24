@@ -1,53 +1,53 @@
-<div class="career-finder-module">
-    <h3 class="eng-articledetail-title">Tomorrow's Engineers Activity Pack - Cargo Drop</h3>
-    <h3 class="eng-articledetail-resourcetype">Activity Plan</h3>
-    <div class="career-rip"></div>
-</div>
-<div class="article-column eng-articledetail-column">
-    <article>
-        <div class="article-content">
-            <p>These activities aim to introduce students, aged 11-14, to different sectors of engineering and the engineering principles involved. Each of the challenges are fun and hands-on and can be run easily in the classroom or in science clubs! <br /><br /> Cargo Drop - This activity will help pupils to understand the principles of forces and motion as well as give them an appreciation of how to combine materials to protect an object or strengthen a structure.</p>
-            <p><b>Location:</b> 192 Cargo Drop Road, Stemster, Rutland, RT96 1PZ</p>
-            <p><b>Age Group:</b> 11-16</p>
-            <p><b>Category:</b> Inspire</p>
-        </div>
-        <div class="article-image">
-            <a href="">
-                <img alt="Tomorrow&#39;s Engineers Activity Pack - Cargo Drop" src="/images/thumb-te-activity-airbus-cargo-drop-dec-2014-1.jpg"></img>
-            </a>
-        </div>
-        <a class="orange-btn download-link eng-stars" href="/feedback" onclick="GoToResource(@article.ContentId)" target="_blank"><img src="/images/stars-25.png" alt="Rating"></a>        
-        <a class="orange-btn download-link" href="/feedback" onclick="GoToResource(@article.ContentId)" target="_blank">Review ></a>        
-    </article>
-    {{> feedback}}
-    {{> feedback}}
-    {{> feedback}}
-</div>
-<div class="eng-article-extras-column">
-     <div class="eng-linktext-content">
-        <ul>
-            <div id="map" class="eng-map"></div>
-        </ul>
+{{#with article}}
+    <div class="career-finder-module">
+        <h3 class="eng-articledetail-title">{{title}}</h3>
+        <h3 class="eng-articledetail-resourcetype">{{activitytype}}</h3>
+        <div class="career-rip"></div>
     </div>
-     <div class="eng-linktext-content">
-        <ul>
-           <li>Resource pack - <a href="https://www.tomorrowsengineers.org.uk/media/1556/te-activity-airbus-cargo-drop-dec-2014.pdf" target="blank">Download</a></li>
-        </ul>
-        <ul>
-           <li>Resource pack - <a href="https://www.tomorrowsengineers.org.uk/media/1556/te-activity-airbus-cargo-drop-dec-2014.pdf" target="blank">Download</a></li>
-        </ul>
+    <div class="article-column eng-articledetail-column">
+        <article>
+            <div class="article-content">
+                <p>{{{description}}}</p>
+                <p><b>Location:</b> {{address}}</p>
+                <p><b>Age Group:</b> {{agegroup}}</p>
+                <p><b>Category:</b> {{category}}</p>
+            </div>
+            <div class="article-image">
+                <a href="">
+                    <img alt="{{title}}" src="{{imageurl}}"></img>
+                </a>
+            </div>
+            <a class="orange-btn download-link eng-stars" href="/feedback" onclick="GoToResource(@article.ContentId)" ><img src="/images/stars-{{rating}}.png" alt="{{rating}} stars"></a>        
+            <a class="orange-btn download-link" href="/feedback" onclick="GoToResource(@article.ContentId)" >Review ></a>        
+        </article>
+        {{#each feedback}}
+            {{> feedback}}
+        {{/each}}
     </div>
-</div>
-{{googlemapapikey}}
-<script>
-function myMap() {
-    var mapOptions = {
-        center: new google.maps.LatLng({{lat}}, {{lng}}),
-        zoom: 10,
-        mapTypeControl: false,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+    <div class="eng-article-extras-column">
+        <div class="eng-linktext-content">
+            <ul>
+                <div id="map" class="eng-map"></div>
+            </ul>
+        </div>
+        <div class="eng-linktext-content">
+            <ul>
+                {{#each resource}}
+                    {{> resourcelink}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    <script>
+    function myMap() {
+        var mapOptions = {
+            center: new google.maps.LatLng({{lat}}, {{lng}}),
+            zoom: 10,
+            mapTypeControl: false,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
     }
-var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-}
-</script>
+    </script>
+{{/with}}
 <script src="https://maps.googleapis.com/maps/api/js?key={{googlemapapikey}}&callback=myMap"></script>

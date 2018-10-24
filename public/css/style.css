@@ -4318,7 +4318,8 @@ body.careers.eng-careers .header-rip {
     border: solid 0px #fff
 }
 .article-column.eng-article-column .article-image img, .article-column.eng-articledetail-column .article-image img {
-    max-height: 400px;
+    max-height:400px;
+    max-width:270px;
     width:auto;
 }
 .eng-article-extras-column {
@@ -4333,7 +4334,7 @@ body.careers.eng-careers .header-rip {
     color:#fff;
     font-size:1.5rem;
     background:#348F91; 
-    width:200px;
+    width:220px;
     margin:-24px 0 10px -24px;
     padding: 5px 10px;
 }
