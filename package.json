@@ -1,0 +1,19 @@
+{
+  "name": "engineeringuk_fe",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "hbs": "^4.0.1",
+    "lodash": "^4.17.11",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}
