@@ -38,11 +38,11 @@
         </ul>
     </div>
 </div>
-
+{{googlemapapikey}}
 <script>
 function myMap() {
     var mapOptions = {
-        center: new google.maps.LatLng(52.6424198, -0.7651507),
+        center: new google.maps.LatLng({{lat}}, {{lng}}),
         zoom: 10,
         mapTypeControl: false,
         mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -50,4 +50,4 @@ function myMap() {
 var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key={{mapapikey}}&callback=myMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{googlemapapikey}}&callback=myMap"></script>

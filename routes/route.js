@@ -8,7 +8,9 @@ var home = (req, res) => {
 var readmore = (req, res) => {
         res.render('readmore', {
         pageTitle: 'Resource Detail',
-        mapapikey: process.env.GoogleMapsAPIKey
+        googlemapapikey: process.env.GoogleMapsAPIKey,
+        lat: 52.6424198, 
+        lng: -0.7651507
     });
 };
 
