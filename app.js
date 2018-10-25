@@ -5,7 +5,7 @@ const session = require('express-session')
 const hbs = require('hbs');
 // const helpers = require('handlebars-helpers')(['array']);
 
-const r = require('./routes/route')
+const routes = require('./routes/route')
 
 const port = process.env.PORT
 
@@ -37,15 +37,22 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.get('/', r.routes.home.getHome);
+app.use((req, res, next) => {
+    console.log(req.method,req.url,req.body)
+    next();
+});
 
-app.get('/login', r.routes.auth.authLogin);
+app.get('/', routes.home.getHome);
 
-app.post('/login', r.routes.auth.getAuthToken);
+app.get('/filter', routes.home.filter);
 
-app.get('/logout', r.routes.auth.authLogout);
+app.get('/login', routes.auth.authLogin);
 
-app.get('/detail/:id', r.routes.detail.getArticle);
+app.post('/login', routes.auth.getAuthToken);
+
+app.get('/logout', routes.auth.authLogout);
+
+app.get('/detail/:id', routes.detail.getArticle);
 
 app.listen(port, () => {
     console.log('Server is up on port ' + port);

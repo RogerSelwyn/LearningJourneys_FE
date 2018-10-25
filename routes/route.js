@@ -2,7 +2,7 @@ const home = require('./home');
 const auth = require('./auth');
 const detail = require('./detail');
 
-exports.routes = {
+module.exports = {
     auth,
     detail,
     home

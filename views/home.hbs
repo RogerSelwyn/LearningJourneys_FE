@@ -3,6 +3,7 @@
     <head>
         {{> head}}
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="/js/main.js"></script>
     </head>
 
     {{> head}}
@@ -13,7 +14,7 @@
                 <h3>Select focus area...</h3>
                 <ul>
                     {{#each careers}}
-                        <li><a href="#" onclick="toggleSub(&#39;Environment&#39;, this); return false;">{{subject_area}}</a></li>
+                        <li class="eng-subject" data-id="{{id}}"><a href="#">{{subject_area}}</a></li>
                     {{/each}}
                 </ul>
                 {{!-- <button class="purple-btn" onclick="goForSearch()" >Help me find my career &gt;</button> --}}
@@ -27,7 +28,7 @@
                         <li><a href="#">Resource Type</a>
                             <ul class="menu_330">
                                 {{#each resourcetypes}}
-                                    <li><a href="/about-us/overview-for-employers/">{{title}}</a></li>
+                                    <li class="eng-resourcetype" data-id="{{id}}"><a href="#">{{title}}</a></li>
                                 {{/each}}
                             </ul>
                         </li>

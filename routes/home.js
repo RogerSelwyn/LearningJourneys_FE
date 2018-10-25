@@ -43,6 +43,24 @@ var getHome = async (req, res, next) => {
     });
 };
 
+var filter = async (req, res, next) => {
+    if (req.query.subjectid) {
+        var subjectfilters = [];
+        if (req.session.subjectfilters) {
+            subjectfilters = req.session.subjectfilters;
+        };
+        subjectfilters.push(req.query.subjectid);
+        req.session.subjectfilters = subjectfilters;
+        console.log(req.session.subjectfilters);
+    }
+    else if (req.query.rtid) {
+        console.log('blah')
+    };
+    return res.redirect('/');
+};
+
+
 module.exports = {
+    filter, 
     getHome
 };
