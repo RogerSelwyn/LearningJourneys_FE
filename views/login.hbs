@@ -1,0 +1,21 @@
+<html>
+    <head>
+        {{> head}}
+        <link href="/css/login.css" rel="stylesheet" media="all">
+    </head>
+    <body class="careers eng-careers eng-login">
+        {{> header}}
+        <div class="w3"> 
+            <div class="login-form">
+                <form action="/login" method="POST">
+                    <input type="text" name="logusername" placeholder="Username" required="">
+                    <input type="password" name="logpassword" placeholder="Password" required="">
+                    <div class="tp">
+                        <input type="submit" value="Login">
+                    </div>
+                </form>
+            </div>
+        </div>
+        {{> footer}}
+    </body>
+</html>

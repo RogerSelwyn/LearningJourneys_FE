@@ -1,17 +1,17 @@
 <article>
     <div class="eng-article-resource">
-        <div class="eng-article-resource-text">{{activitytype}}</div>
+        <div class="eng-article-resource-text">{{resource_type.title}}</div>
     </div>
     <div class="article-content">
         <h2>{{title}}</h2>
-        <p>{{{description}}}</p>
+        <p>{{{resource}}}</p>
     </div>
     <div class="article-image">
         <a href="">
-            <img alt="{{title}}" src="{{imageurl}}"></img>
+            <img alt="{{title}}" src="{{resource_image}}"></img>
         </a>
     </div>
     <a class="orange-btn download-link eng-stars" href="/feedback" onclick="GoToResource(@article.ContentId)" ><img src="/images/stars-{{rating}}.png" alt="{{rating}} stars"></a>        
     <a class="orange-btn download-link" href="/feedback" onclick="GoToResource(@article.ContentId)" >Review ></a>        
-    <a class="orange-btn download-link" href="/readmore/{{id}}"  >Read More ></a>        
+    <a class="orange-btn download-link" href="/detail/{{id}}"  >Read More ></a>        
 </article>

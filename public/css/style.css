@@ -4334,7 +4334,7 @@ body.careers.eng-careers .header-rip {
     color:#fff;
     font-size:1.5rem;
     background:#348F91; 
-    width:220px;
+    max-width:300px;
     margin:-24px 0 10px -24px;
     padding: 5px 10px;
 }

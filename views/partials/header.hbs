@@ -14,8 +14,12 @@
                         <input type="hidden" id="search_q" name="search_q" value="" />
                     </form>
                 </li>
-                <li>
-                    <a href="/login/" target="_parent">Login</a>
+                <li id="loginbutton">
+                    {{#if session.username}}
+                        <a href="/logout/" target="_parent">Logout - {{session.username}}</a>
+                    {{else}}
+                        <a href="/login/" target="_parent">Login {{session.username}}</a>
+                    {{/if}}
                 </li>
             </ul>
 

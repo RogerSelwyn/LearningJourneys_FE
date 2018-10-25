@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        {{!-- <link href="css/normalize.css" rel="stylesheet" media="all"> --}}
-        <link href="/css/style.css" rel="stylesheet" media="all">
-        <title>Engineering UK - {{pageTitle}}</title>
+        {{> head}}
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     </head>
+
+    {{> head}}
     <body class="careers eng-careers">
         {{> header}}
         <div class="career-finder-module">
@@ -14,7 +13,7 @@
                 <h3>Select focus area...</h3>
                 <ul>
                     {{#each careers}}
-                        <li><a href="#" onclick="toggleSub(&#39;Environment&#39;, this); return false;">{{name}}</a></li>
+                        <li><a href="#" onclick="toggleSub(&#39;Environment&#39;, this); return false;">{{subject_area}}</a></li>
                     {{/each}}
                 </ul>
                 {{!-- <button class="purple-btn" onclick="goForSearch()" >Help me find my career &gt;</button> --}}
@@ -28,7 +27,7 @@
                         <li><a href="#">Resource Type</a>
                             <ul class="menu_330">
                                 {{#each resourcetypes}}
-                                    <li><a href="/about-us/overview-for-employers/">{{name}}</a></li>
+                                    <li><a href="/about-us/overview-for-employers/">{{title}}</a></li>
                                 {{/each}}
                             </ul>
                         </li>
@@ -52,7 +51,7 @@
             <div class="career-rip"></div>
         </div>
         <div class="article-column eng-article-column">
-            {{#each articles}}
+            {{#each resources}}
                 {{> article}} 
             {{/each}}
         </div>  
