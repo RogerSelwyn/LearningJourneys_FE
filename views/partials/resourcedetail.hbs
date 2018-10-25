@@ -1,0 +1,63 @@
+{{#with resource}}
+    <div class="career-finder-module">
+        <h3 class="eng-articledetail-title">{{title}}</h3>
+        <h3 class="eng-articledetail-resourcetype">{{resource_subject_area.subject_area}} - {{resource_type.title}}</h3>
+        <div class="career-rip"></div>
+    </div>
+    <div class="article-column eng-articledetail-column">
+        <article>
+            <div class="article-content">
+                <p>{{breaklines resource}}</p>
+                {{#if resource_location}}
+                    <p><b>Location:</b> {{resource_location.location}}</p>
+                {{/if}}
+                {{#if resource_age_group}}
+                    <p><b>Age Group:</b> {{resource_age_group.age_lower}} - {{resource_age_group.age_upper}}</p>
+                {{/if}}
+                <p><b>Category:</b> {{resource_category.category}}</p>
+            </div>
+            <div class="article-image">
+                <a href="">
+                    <img alt="{{title}}" src="{{resource_image}}"></img>
+                </a>
+            </div>
+            {{#if averageRating}}
+                <a class="orange-btn download-link eng-stars" href="/feedback" onclick="GoToResource(@article.ContentId)" ><img src="/images/stars-{{averageRating}}.png" alt="{{rating}} stars"></a> 
+            {{/if}}
+            <a class="orange-btn download-link" href="/feedback" onclick="GoToResource(@article.ContentId)" >Review ></a>        
+        </article>
+        {{#each feedback}}
+            {{> feedback}}
+        {{/each}}
+    </div>
+    <div class="eng-article-extras-column">
+        {{#if lat}}
+            <div class="eng-linktext-content">
+                <ul>
+                    <div id="map" class="eng-map"></div>
+                </ul>
+            </div>
+        {{/if}}
+        <div class="eng-linktext-content">
+            <ul>
+                {{#each resource_link}}
+                    {{> resourcelink}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    {{#if lat}}
+        <script>
+            function myMap() {
+                var mapOptions = {
+                    center: new google.maps.LatLng({{lat}}, {{lng}}),
+                    zoom: 10,
+                    mapTypeControl: false,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                }
+                var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+            }
+        </script>
+    {{/if}}
+{{/with}}
+<script src="https://maps.googleapis.com/maps/api/js?key={{googlemapapikey}}&callback=myMap"></script>

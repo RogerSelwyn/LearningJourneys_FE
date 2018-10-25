@@ -17,7 +17,13 @@ app.set('views', './views');
 app.use(express.static(__dirname + '/public'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+
 // hbs.registerHelper("filter", helpers.filter);
+hbs.registerHelper('breaklines', text => {
+    text = hbs.Utils.escapeExpression(text);
+    text = text.replace(/(\r\n|\n|\r)/gm, '<br>');
+    return new hbs.SafeString(text);
+});
 
 app.use(session({
     secret: process.env.SessionPWD,

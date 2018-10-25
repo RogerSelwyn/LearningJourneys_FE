@@ -1,31 +1,28 @@
-const _ = require('lodash');
 const axios = require('axios');
 
 var getHome = async (req, res, next) => {
     try {
-        const careersPromise = axios.get(process.env.RESTAPIURL+ 'subject_areas/');
-        const resourcetypesPromise = axios.get(process.env.RESTAPIURL+ 'types/');
+        const careersPromise = axios.get(process.env.RESTAPIURL+ 'subject_areas/?ordering=subject_area');
+        const resourcetypesPromise = axios.get(process.env.RESTAPIURL+ 'types/?ordering=title');
         const resourcesPromise = axios.get(process.env.RESTAPIURL+ 'resources/');
         const [careersData, resourcetypesData, resourcesData] = await Promise.all([careersPromise, resourcetypesPromise, resourcesPromise]);
-        var careers = _.sortBy(careersData.data, 'subject_area');
-        var resourcetypes = _.sortBy(resourcetypesData.data, 'title');
+        var careers = careersData.data;
+        var resourcetypes = resourcetypesData.data;
         var resources = resourcesData.data;
-        resources.forEach(async resource => {
+        for (var resource of resources) {
             try {
-                console.log('-------------------------', resource.id)
-                // var ratingData = await axios.get(process.env.RESTAPIURL+ 'resources/' + resource.id + '/get_average_rating/');
-                // var rating = ratingData.data;
-                // console.log(resource.id, rating)
-                resource.rating = 5;
+                var ratingData = await axios.get(process.env.RESTAPIURL+ 'resources/' + resource.id + '/get_average_rating/');
+                rating = ratingData.data;
+                resource.rating = ratingData.data.average_rating;
             } catch (e) {
                 console.error(e); 
             };
-        });
+        };
 
     } catch (e) {
         console.error(e); 
     };
-
+ 
     res.render('home', {
         pageTitle: 'Home Page',
         careers: careers,
