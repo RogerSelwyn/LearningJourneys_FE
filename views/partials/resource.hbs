@@ -11,9 +11,17 @@
             <img alt="{{title}}" src="{{resource_image}}"></img>
         </a>
     </div>
-    {{#if rating}}
-        <a class="orange-btn download-link eng-stars" href="/review/{{id}}"  ><img src="/images/stars-{{rating}}.png" alt="{{rating}} stars"></a>   
-    {{/if}}     
-    <a class="orange-btn download-link" href="/review/{{id}}" >Review ></a>        
+    <div class="{{#unless username}}eng-rating{{/unless}}">
+        {{#if averageRating}}
+            {{#if username}}
+                <a class="orange-btn download-link eng-stars" href="/review/{{id}}" ><img src="/images/stars-{{averageRating}}.png" alt="{{averageRating}} stars"></a>
+            {{else}}
+                <img class="eng-stars" src="/images/stars-{{averageRating}}.png" alt="{{averageRating}} stars">
+            {{/if}}
+        {{/if}}
+    </div>  
+    {{#if username}}
+        <a class="orange-btn download-link" href="/review/{{id}}" >Review ></a>       
+    {{/if}}
     <a class="orange-btn download-link" href="/detail/{{id}}" >Read More ></a>        
 </article>

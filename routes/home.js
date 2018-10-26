@@ -28,7 +28,6 @@ var getHome = async (req, res, next) => {
             addchar = '&';
         }
     }
-    console.log('filters', filters);
 
     try {
         const careersPromise = axios.get(process.env.RESTAPIURL+ 'subject_areas/?ordering=subject_area');
@@ -36,6 +35,8 @@ var getHome = async (req, res, next) => {
         const resourcesPromise = axios.get(process.env.RESTAPIURL+ 'resources/' + filters);
         const [careersData, resourcetypesData, resourcesData] = await Promise.all([careersPromise, resourcetypesPromise, resourcesPromise]);
         var careers = careersData.data;
+        var resourcetypes = resourcetypesData.data;
+        var resources = resourcesData.data;
         if (filterreq) {
             for (var subject of req.session.subjectfilters) {
                 careerId = _.findIndex(careers, ['id', parseInt(subject.id, 10)])
@@ -43,17 +44,20 @@ var getHome = async (req, res, next) => {
                     careers[careerId].cssclass = "eng-filter-active";                
                 };
             }
+            for (var resourcetype of req.session.resourcetypefilters) {
+                resourcetypeId = _.findIndex(resourcetypes, ['id', parseInt(resourcetype.id, 10)])
+                if (resourcetypeId > -1) {
+                    resourcetypes[resourcetypeId].cssclass = "eng-filter-active";                
+                };
+            }
         };
         for (var career of careers) {
             _.find(req.session.subjectfilters)
         }
-        var resourcetypes = resourcetypesData.data;
-        var resources = resourcesData.data;
         for (var resource of resources) {
             try {
                 var ratingData = await axios.get(process.env.RESTAPIURL+ 'resources/' + resource.id + '/get_average_rating/');
-                rating = ratingData.data;
-                resource.rating = ratingData.data.average_rating;
+                resource.averageRating = Math.round(ratingData.data.average_rating*2)/2;
             } catch (e) {
                 console.error(e); 
             };
@@ -88,7 +92,6 @@ var getHome = async (req, res, next) => {
 };
 
 var filter = async (req, res, next) => {
-    console.log(req.session.subjectfilters, req.session.resourcetypefilters);
     var subjectfilters = [];
     if (req.session.subjectfilters) {
         subjectfilters = req.session.subjectfilters;

@@ -4365,7 +4365,7 @@ body.careers.eng-careers .header-rip {
     float:left;
 }
 .eng-rating {
-    width:35%; 
+    width:33%; 
     float:right; 
 }
 .article-column.eng-articledetail-column article .eng-rating a.orange-btn, .article-column.eng-reviewdetail-column article .eng-rating a.orange-btn{
@@ -4416,12 +4416,12 @@ body.careers.eng-careers .header-rip {
  }
  .eng-review-content textarea, .eng-review-content select, .eng-review-content input {
   margin:10px;
-  font-size:1.5rem;
+  font-size:1.3rem;
 }
 .eng-review-content textarea {
-  width:calc(100% - 18px);
+  width:calc(100% - 28px);
 }
-.eng-subject.eng-filter-active a {
+.eng-subject.eng-filter-active a, #top-nav .eng-resourcetype.eng-filter-active a {
   background: #E8A524;
 }
 .eng-filters-lower, .eng-filters-upper {
@@ -4429,5 +4429,15 @@ body.careers.eng-careers .header-rip {
 }
 .eng-filters-lower #top-nav {
   left:0px;
+}
+img.eng-stars {
+  float:right;
+  padding: 0.5em 1.2em;
+}
+.eng-rating {
+  clear: right;
+}
+.eng-feedback h3 {
+  font-size:1.3rem;
 }
 /* RWJS End added */

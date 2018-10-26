@@ -1,9 +1,9 @@
 <article>
     <div class="article-content eng-feedback">
-        <h3>{{title}}</h3>
         <p>{{breaklines feedback}}</p>
+        <h3>Author: {{approver.first_name}} {{approver.last_name}}</h3>
     </div>
     <div class="eng-rating">
-        <a class="orange-btn download-link eng-stars" href="/feedback" onclick="GoToResource(@article.ContentId)"><img src="/images/stars-{{rating}}.png" alt="{{rating}} stars"></a>        
+        <img class="eng-stars" src="/images/stars-{{rating}}.png" alt="{{rating}} stars">       
     </div>
 </article>

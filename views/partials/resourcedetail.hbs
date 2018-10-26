@@ -21,10 +21,18 @@
                     <img alt="{{title}}" src="{{resource_image}}"></img>
                 </a>
             </div>
-            {{#if averageRating}}
-                <a class="orange-btn download-link eng-stars" href="/review/{{id}}" ><img src="/images/stars-{{averageRating}}.png" alt="{{rating}} stars"></a> 
+            <div class="eng-rating">
+                {{#if averageRating}}
+                    {{#if ../session.username}}
+                        <a class="orange-btn download-link eng-stars" href="/review/{{id}}" ><img src="/images/stars-{{averageRating}}.png" alt="{{averageRating}} stars"></a>
+                    {{else}}
+                        <img class="eng-stars" src="/images/stars-{{averageRating}}.png" alt="{{averageRating}} stars">
+                    {{/if}}
+                {{/if}}
+            </div>  
+            {{#if ../session.username}}
+                <a class="orange-btn download-link" href="/review/{{id}}" >Review ></a>       
             {{/if}}
-            <a class="orange-btn download-link" href="/review/{{id}}" >Review ></a>        
         </article>
         {{#each feedback}}
             {{> feedback}}
@@ -60,4 +68,6 @@
         </script>
     {{/if}}
 {{/with}}
-<script src="https://maps.googleapis.com/maps/api/js?key={{googlemapapikey}}&callback=myMap"></script>
+{{#if lat}}
+    <script src="https://maps.googleapis.com/maps/api/js?key={{googlemapapikey}}&callback=myMap"></script>
+{{/if}}

@@ -17,7 +17,7 @@
                 <p><b>Category:</b> {{resource_category.category}}</p>
             </div>
            {{#if averageRating}}
-                <a class="orange-btn download-link eng-stars" href="/review/{{id}}" ><img src="/images/stars-{{averageRating}}.png" alt="{{rating}} stars"></a> 
+                <img class="eng-stars"src="/images/stars-{{averageRating}}.png" alt="{{averageRating}} stars">
             {{/if}}
         </article>
         {{#each feedback}}
