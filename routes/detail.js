@@ -22,6 +22,7 @@ var getDetail = async (req, res) => {
     };
     resource.averageRating = Math.round(averageRating.average_rating*2)/2;
     resource.feedback = feedback;
+    console.log(feedback);
 
     var response = null;
     if (resource.resource_location != null) {
