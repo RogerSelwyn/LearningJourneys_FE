@@ -12,7 +12,7 @@ var getDetail = async (req, res) => {
     try {
         const resourcePromise = axios.get(process.env.RESTAPIURL+ 'resources/' + id +'/');
         const averageRatingPromise = axios.get(process.env.RESTAPIURL+ 'resources/' + id + '/get_average_rating/');
-        const feedbackPromise = axios.get(process.env.RESTAPIURL+ 'feedback_full/?resource' + id);
+        const feedbackPromise = axios.get(process.env.RESTAPIURL+ 'feedback_full/?resource=' + id);
         const [resourceData, averageRatingData, feedbackData] = await Promise.all([resourcePromise, averageRatingPromise, feedbackPromise]);
         var resource = resourceData.data;
         var averageRating = averageRatingData.data;
