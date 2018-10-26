@@ -4327,16 +4327,23 @@ body.careers.eng-careers .header-rip {
   float:right;
 }
 .eng-article-resource {
-    width:100%;
+  width:100%;
+}
+.eng-article-resource-text, .eng-article-subject-text {
+  font-family: VAGRoundedLTCom-Bold, 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+  color:#fff;
+  font-size:1.5rem;
+  background:#348F91; 
+  max-width:300px;
+  padding: 5px 10px;
 }
 .eng-article-resource-text {
-    font-family: VAGRoundedLTCom-Bold, 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
-    color:#fff;
-    font-size:1.5rem;
-    background:#348F91; 
-    max-width:300px;
-    margin:-24px 0 10px -24px;
-    padding: 5px 10px;
+  margin:-24px 0 10px -24px;
+  float:left;
+}
+.eng-article-subject-text {
+  margin:-24px -24px 10px 0px;
+  float:right;
 }
 .career-finder-module .eng-articledetail-resourcetype, .career-finder-module .eng-review-resourcetype {
     text-decoration: underline;
