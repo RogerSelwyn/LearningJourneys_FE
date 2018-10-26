@@ -28,8 +28,15 @@
         <div class="eng-review-content">
             <div class="review-form">
                 <form action="/review/{{id}}" method="POST">
-                    <textarea type="text" name="reviewtext" placeholder="Review comments..." required="" rows="10"></textarea>
-                    <input type="text" name="reviewrating" placeholder="Rating" required="">
+                    <textarea type="text" name="reviewtext" placeholder="Review comments..." required rows="10"></textarea>
+                    <select name="reviewrating" required>
+                        <option value="" disabled selected>Select Rating</option>
+                        <option value="5">5 star</option>
+                        <option value="4">4 star</option>
+                        <option value="3">3 star</option>
+                        <option value="2">2 star</option>
+                        <option value="1">1 star</option>
+                    </select>
                     <div class="tp">
                         <input type="submit" value="Submit Review">
                     </div>

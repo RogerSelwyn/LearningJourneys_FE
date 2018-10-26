@@ -39,7 +39,7 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
-    console.log(req.method,req.url,req.body)
+    // console.log(req.method,req.url,req.body)
     next();
 });
 
@@ -56,6 +56,8 @@ app.get('/logout', routes.auth.authLogout);
 app.get('/detail/:id', routes.detail.getDetail);
 
 app.get('/review/:id', routes.review.getReview);
+
+app.post('/review/:id', routes.review.postReview);
 
 app.listen(port, () => {
     console.log('Server is up on port ' + port);

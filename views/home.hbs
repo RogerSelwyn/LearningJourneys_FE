@@ -2,8 +2,24 @@
 <html>
     <head>
         {{> head}}
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="/js/main.js"></script>
+        <script>
+            $( function() {
+                $( "#slider-range" ).slider({
+                    range: true,
+                    min: 0,
+                    max: 24,
+                    values: [ 11, 16 ],
+                    slide: function( event, ui ) {
+                        $( "#agerange" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+                    }
+                });
+                $( "#agerange" ).val( $( "#slider-range" ).slider( "values", 0 ) +  " - " + $( "#slider-range" ).slider( "values", 1 ) );
+            } );
+        </script>
     </head>
 
     {{> head}}
@@ -14,40 +30,50 @@
                 <h3>Select focus area...</h3>
                 <ul>
                     {{#each careers}}
-                        <li class="eng-subject" data-id="{{id}}"><a href="/filter?subjectid={{id}}">{{subject_area}}</a></li>
+                        <li class="eng-subject {{cssclass}}" data-id="{{id}}"><a href="/filter?subjectid={{id}}">{{subject_area}}</a></li>
                     {{/each}}
                 </ul>
                 {{!-- <button class="purple-btn" onclick="goForSearch()" >Help me find my career &gt;</button> --}}
             </div>
             <div class="eng-filters">
-                <nav id="top-nav" role="navigation">
-                    <button class="menu-text menu-toggle-switch">
-                        Menu<span></span>
-                    </button>
-                    <ul class="top-layer-nav-list">
-                        <li><a href="#">Resource Type</a>
-                            <ul class="menu_330">
-                                {{#each resourcetypes}}
-                                    <li class="eng-resourcetype" data-id="{{id}}"><a href="/filter?subjectid={{rtid}}">{{title}}</a></li>
-                                {{/each}}
-                            </ul>
-                        </li>
-                        <li><a href="#">Age Group</a>
-                            <ul class="menu_330">
-                                {{#each agegroups}}
-                                    <li><a href="/about-us/overview-for-employers/">{{name}}</a></li>
-                                {{/each}}
-                            </ul>
-                        </li>
-                        <li><a href="#">Distance Away</a>
-                            <ul class="menu_330">
-                                {{#each distances}}
-                                    <li><a href="/about-us/overview-for-employers/">{{name}}</a></li>
-                                {{/each}}
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
+                <div class="eng-filters-upper">
+                    <div style="width:45%; float:left;">
+                        <label for="agerange" style="color:#fff;">Age range:</label>
+                        <input type="text" id="agerange" readonly style="border:0; color:#fff; background:transparent; font-weight:bold;width: 50px;">
+                    </div>
+                    
+                    <div id="slider-range" style="width:55%;float:right;margin:4px 0 0 0;"></div>
+               </div>
+                <div class="eng-filters-lower">
+                    <nav id="top-nav" role="navigation">
+                        <button class="menu-text menu-toggle-switch">
+                            Menu<span></span>
+                        </button>
+                        <ul class="top-layer-nav-list">
+                            <li><a href="#">Resource Type</a>
+                                <ul class="menu_330">
+                                    {{#each resourcetypes}}
+                                        <li class="eng-resourcetype" data-id="{{id}}"><a href="/filter?rtid={{id}}">{{title}}</a></li>
+                                    {{/each}}
+                                </ul>
+                            </li>
+                            {{!-- <li><a href="#">Age Group</a>
+                                <ul class="menu_330">
+                                    {{#each agegroups}}
+                                        <li><a href="/about-us/overview-for-employers/">{{name}}</a></li>
+                                    {{/each}}
+                                </ul>
+                            </li> --}}
+                            <li><a href="#">Distance Away</a>
+                                <ul class="menu_330">
+                                    {{#each distances}}
+                                        <li><a href="/about-us/overview-for-employers/">{{name}}</a></li>
+                                    {{/each}}
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
             <div class="career-rip"></div>
         </div>

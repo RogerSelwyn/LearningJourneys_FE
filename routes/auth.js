@@ -28,6 +28,7 @@ var getAuthToken = async (req, res, next) => {
         });
         req.session.username = req.body.logusername;
         req.session.token = response.data.token;
+        req.session.userid = response.data.id;
     } catch (e) {
         console.log(e)
         return res.redirect('/login')

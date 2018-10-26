@@ -23,7 +23,24 @@ var getReview = async (req, res, next) => {
     });
 };
 
+var postReview = async (req, res, next) => {
+    var id = parseInt(req.params.id, 10);
+    try {
+        const response = await axios.post(process.env.RESTAPIURL+ 'feedback/',{
+            author: req.session.userid,
+            feedback: req.body.reviewtext,
+            rating: req.body.reviewrating,
+            resource: id
+        });
+    } catch (e) {
+        console.log(e)
+        return res.redirect('/detail/' + id);
+    };
+    return res.redirect('/detail/' + id);
+};
+
 
 module.exports = {
-    getReview
+    getReview,
+    postReview
 };
