@@ -4308,7 +4308,7 @@ body.careers.eng-careers .header-rip {
     margin-right:auto;
     max-width:50%;
 }
-.article-column.eng-article-column article a.orange-btn, .article-column.eng-articledetail-column article a.orange-btn {
+.article-column.eng-article-column article a.orange-btn, .article-column.eng-articledetail-column article a.orange-btn, .article-column.eng-review-column article a.orange-btn {
     width: 20%;
     max-width:200px;
     margin-bottom:5px;
@@ -4323,8 +4323,8 @@ body.careers.eng-careers .header-rip {
     width:auto;
 }
 .eng-article-extras-column {
-    width:33%;
-    float:right;
+  width:33%;
+  float:right;
 }
 .eng-article-resource {
     width:100%;
@@ -4338,7 +4338,7 @@ body.careers.eng-careers .header-rip {
     margin:-24px 0 10px -24px;
     padding: 5px 10px;
 }
-.career-finder-module .eng-articledetail-resourcetype {
+.career-finder-module .eng-articledetail-resourcetype, .career-finder-module .eng-review-resourcetype {
     text-decoration: underline;
     font-size:2rem;
 }
@@ -4365,10 +4365,10 @@ body.careers.eng-careers .header-rip {
     float:left;
 }
 .eng-rating {
-    width:30%; 
+    width:35%; 
     float:right; 
 }
-.article-column.eng-articledetail-column article .eng-rating a.orange-btn{
+.article-column.eng-articledetail-column article .eng-rating a.orange-btn, .article-column.eng-reviewdetail-column article .eng-rating a.orange-btn{
     width:100%;
 }
 .eng-filters {
@@ -4401,6 +4401,23 @@ body.careers.eng-careers .header-rip {
     margin:0;
     display:list-item;
 }
-.eng-filters #top-nav > ul {
+.article-column.eng-reviewdetail-column {
+  width:50%;
 }
+.article-column.eng-reviewdetail-column article .article-content {
+  width:100%;
+}
+.eng-review-column {
+  width:45%;
+  float:right;
+}
+.eng-review-content {
+  background: #f5f5f5;
+ }
+.eng-review-content textarea {
+  margin:10px;
+  font-size:1.5rem;
+  width:calc(100% - 18px);
+}
+
 /* RWJS End added */

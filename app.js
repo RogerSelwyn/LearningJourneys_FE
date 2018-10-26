@@ -53,7 +53,9 @@ app.post('/login', routes.auth.getAuthToken);
 
 app.get('/logout', routes.auth.authLogout);
 
-app.get('/detail/:id', routes.detail.getArticle);
+app.get('/detail/:id', routes.detail.getDetail);
+
+app.get('/review/:id', routes.review.getReview);
 
 app.listen(port, () => {
     console.log('Server is up on port ' + port);

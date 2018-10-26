@@ -1,0 +1,40 @@
+{{#with resource}}
+    <div class="career-finder-module">
+        <h3 class="eng-review-title">{{title}}</h3>
+        <h3 class="eng-review-resourcetype">{{resource_subject_area.subject_area}} - {{resource_type.title}}</h3>
+        <div class="career-rip"></div>
+    </div>
+    <div class="article-column eng-reviewdetail-column">
+        <article>
+            <div class="article-content">
+                <p>{{breaklines resource}}</p>
+                {{#if resource_location}}
+                    <p><b>Location:</b> {{resource_location.location}}</p>
+                {{/if}}
+                {{#if resource_age_group}}
+                    <p><b>Age Group:</b> {{resource_age_group.age_lower}} - {{resource_age_group.age_upper}}</p>
+                {{/if}}
+                <p><b>Category:</b> {{resource_category.category}}</p>
+            </div>
+           {{#if averageRating}}
+                <a class="orange-btn download-link eng-stars" href="/review/{{id}}" ><img src="/images/stars-{{averageRating}}.png" alt="{{rating}} stars"></a> 
+            {{/if}}
+        </article>
+        {{#each feedback}}
+            {{> feedback}}
+        {{/each}}
+    </div>
+    <div class="eng-review-column">
+        <div class="eng-review-content">
+            <div class="review-form">
+                <form action="/review/{{id}}" method="POST">
+                    <textarea type="text" name="reviewtext" placeholder="Review comments..." required="" rows="10"></textarea>
+                    <input type="text" name="reviewrating" placeholder="Rating" required="">
+                    <div class="tp">
+                        <input type="submit" value="Submit Review">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{{/with}}

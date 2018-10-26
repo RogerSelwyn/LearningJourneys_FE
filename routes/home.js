@@ -6,18 +6,23 @@ var getHome = async (req, res, next) => {
     if (req.session.subjectfilters) {
         filterreq = true;
     };
-    
-    try {
-        var filters = '';
-        var addchar = '?';
-        if (filterreq) {
+    var filters = '';
+    var addchar = '?';
+    if (filterreq) {
+        if (req.session.subjectfilters.length > 0) {
+            filters += addchar + 'resource_subject_area__in=';
+            var addsep = '';
             for (var subject of req.session.subjectfilters) {
-                filters += addchar + 'resource_subject_area=' + subject.id
-                addchar = '&';
+                filters += addsep + subject.id;
+                addsep = ',';
             }
+            addchar = '&';
         }
-        console.log('filters', filters);
-        const careersPromise = axios.get(process.env.RESTAPIURL+ 'subject_areas/?ordering=subject_area' + filters);
+    }
+    console.log('filters', filters);
+
+    try {
+        const careersPromise = axios.get(process.env.RESTAPIURL+ 'subject_areas/?ordering=subject_area');
         const resourcetypesPromise = axios.get(process.env.RESTAPIURL+ 'types/?ordering=title');
         const resourcesPromise = axios.get(process.env.RESTAPIURL+ 'resources/' + filters);
         const [careersData, resourcetypesData, resourcesData] = await Promise.all([careersPromise, resourcetypesPromise, resourcesPromise]);

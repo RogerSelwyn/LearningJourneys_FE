@@ -12,8 +12,8 @@
         </a>
     </div>
     {{#if rating}}
-        <a class="orange-btn download-link eng-stars" href="/feedback" onclick="GoToResource(@article.ContentId)" ><img src="/images/stars-{{rating}}.png" alt="{{rating}} stars"></a>   
+        <a class="orange-btn download-link eng-stars" href="/review/{{id}}"  ><img src="/images/stars-{{rating}}.png" alt="{{rating}} stars"></a>   
     {{/if}}     
-    <a class="orange-btn download-link" href="/feedback" onclick="GoToResource(@article.ContentId)" >Review ></a>        
-    <a class="orange-btn download-link" href="/detail/{{id}}"  >Read More ></a>        
+    <a class="orange-btn download-link" href="/review/{{id}}" >Review ></a>        
+    <a class="orange-btn download-link" href="/detail/{{id}}" >Read More ></a>        
 </article>
