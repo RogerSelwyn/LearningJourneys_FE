@@ -28,11 +28,12 @@ hbs.registerHelper('breaklines', text => {
 app.use(session({
     secret: process.env.SessionPWD,
     resave: true,
-    saveUninitialized: false,
+    saveUninitialized: true,
     name: process.env.SessionName,
     maxAge: 3600000
   }));
-app.use(function (req, res, next) {
+
+app.use((req, res, next) => {
     res.locals.session = req.session;
     next();
 });

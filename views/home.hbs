@@ -14,7 +14,7 @@
                 <h3>Select focus area...</h3>
                 <ul>
                     {{#each careers}}
-                        <li class="eng-subject" data-id="{{id}}"><a href="#">{{subject_area}}</a></li>
+                        <li class="eng-subject" data-id="{{id}}"><a href="/filter?subjectid={{id}}">{{subject_area}}</a></li>
                     {{/each}}
                 </ul>
                 {{!-- <button class="purple-btn" onclick="goForSearch()" >Help me find my career &gt;</button> --}}
@@ -56,6 +56,9 @@
                 {{> resource}} 
             {{/each}}
         </div>  
+        <div id="results">
+
+        </div>
         {{> footer}}
 
         <script>
