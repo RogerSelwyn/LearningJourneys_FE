@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script src="/js/main.js"></script>
+        <script src="/js/homeCtrl.js"></script>
         <script>
             $( function() {
                 $( "#slider-range" ).slider({
@@ -77,32 +77,21 @@
             </div>
             <div class="career-rip"></div>
         </div>
-        <div class="article-column eng-article-column">
-            {{#each resources}}
+        <span onclick="openNav()" class="eng-filter-button">Filters</span>
+        <div class="article-column eng-article-column" style="clear:both">
+           {{#each resources}}
                 {{> resource username=../session.username }} 
             {{/each}}
         </div>  
-        <div id="results">
-
-        </div>
         {{> footer}}
 
-        <script>
-            //nav slide
-            $(document).ready(function () {
-                $(".menu-text").click(function () {
-                    $(".top-layer-nav-list").slideToggle(200);
-                });
-                // This animated the toggle.
-                if ($('.target').is(':visible')) { }
-            });
-            $('#top-nav li ul').hide().removeClass('fallback');
-            $('#top-nav li').click(
-            function () {
-                $('#top-nav li ul').not($(this).children("ul").slideToggle(200)).hide();
-            }
-        );
-        </script>
+        <div id="engFilters" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+        </div>
 
     </body>
 </html>
