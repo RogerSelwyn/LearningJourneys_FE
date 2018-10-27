@@ -4477,6 +4477,15 @@ body.careers.eng-login .header-rip {
   color:#fff; 
   border:solid 2px #aaa;
 }
+.eng-sidebar-filters {
+  padding:5px;
+  position: abolute;
+  left:0px;
+  top:60px;
+}
+.eng-sidebar-filters .eng-filter-active {
+  background: #E8A524;
+}
 
 /* The side navigation menu */
 .sidenav {
