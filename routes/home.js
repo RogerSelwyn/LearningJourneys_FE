@@ -79,10 +79,10 @@ var getHome = async (req, res, next) => {
                 {name:'15-18'}
             ],
             distances: [
-                {name:'0-50 miles'}, 
-                {name:'51-100 miles'}, 
-                {name:'101-200 miles'}, 
-                {name:'200+ miles'}
+                {id:1, name:'0-50 miles'}, 
+                {id:2, name:'51-100 miles'}, 
+                {id:3, name:'101-200 miles'}, 
+                {id:4, name:'200+ miles'}
             ],
             resources: resources
         });

@@ -4486,14 +4486,30 @@ body.careers.eng-login .header-rip {
 .eng-sidebar-filters .eng-filter-active {
   background: #E8A524;
 }
-
+select.eng-filteritem, .eng-filteritem {
+  margin-bottom:20px;
+}
+#slider-range {
+  margin-top:6px;
+  margin-right:5px;
+}
+#agerange{
+  border:0; 
+  color:#fff; 
+  background:transparent; 
+  font-weight:bold;
+  width: 50px;
+}
+#agerangelabel {
+  color:#fff;
+}
 /* The side navigation menu */
 .sidenav {
-  height: 50%; /* 100% Full-height */
+  height: 25%; /* 100% Full-height */
   width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
   z-index: 1; /* Stay on top */
-  top: 25%; /* Stay at the top */
+  top: 35%; /* Stay at the top */
   left: 0;
   background-color: #111; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */

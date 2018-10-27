@@ -1,16 +1,18 @@
 //nav slide
 $(function(){
-    $(document).ready(function () {
-        $(".menu-text").click(function () {
-            $(".top-layer-nav-list").slideToggle(200);
-        });
-        // This animated the toggle.
-        if ($('.target').is(':visible')) { }
+    $("#eng-resourcetypefilter").change(function() {
+        document.location.href = "filter?rtid=" + $(this).val();
     });
-    $('#top-nav li ul').hide().removeClass('fallback');
-    $('#top-nav li').click(function () {
-            $('#top-nav li ul').not($(this).children("ul").slideToggle(200)).hide();
+    $( "#slider-range" ).slider({
+        range: true,
+        min: 0,
+        max: 24,
+        values: [ 11, 16 ],
+        slide: function( event, ui ) {
+            $( "#agerange" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+        }
     });
+    $( "#agerange" ).val( $( "#slider-range" ).slider( "values", 0 ) +  " - " + $( "#slider-range" ).slider( "values", 1 ) );
 });
 
 /* Set the width of the side navigation to 250px */

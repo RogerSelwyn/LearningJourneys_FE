@@ -6,20 +6,6 @@
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="/js/homeCtrl.js"></script>
-        <script>
-            $( function() {
-                $( "#slider-range" ).slider({
-                    range: true,
-                    min: 0,
-                    max: 24,
-                    values: [ 11, 16 ],
-                    slide: function( event, ui ) {
-                        $( "#agerange" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
-                    }
-                });
-                $( "#agerange" ).val( $( "#slider-range" ).slider( "values", 0 ) +  " - " + $( "#slider-range" ).slider( "values", 1 ) );
-            } );
-        </script>
     </head>
 
     {{> head}}
@@ -35,46 +21,6 @@
                 </ul>
                 {{!-- <button class="purple-btn" onclick="goForSearch()" >Help me find my career &gt;</button> --}}
             </div>
-            <div class="eng-filters">
-                <div class="eng-filters-upper">
-                    <div style="width:45%; float:left;">
-                        <label for="agerange" style="color:#fff;">Age range:</label>
-                        <input type="text" id="agerange" readonly style="border:0; color:#fff; background:transparent; font-weight:bold;width: 50px;">
-                    </div>
-                    
-                    <div id="slider-range" style="width:55%;float:right;margin:4px 0 0 0;"></div>
-               </div>
-                <div class="eng-filters-lower">
-                    <nav id="top-nav" role="navigation">
-                        <button class="menu-text menu-toggle-switch">
-                            Menu<span></span>
-                        </button>
-                        <ul class="top-layer-nav-list">
-                            <li><a href="#">Resource Type</a>
-                                <ul class="menu_330">
-                                    {{#each resourcetypes}}
-                                        <li class="eng-resourcetype {{cssclass}}" data-id="{{id}}"><a href="/filter?rtid={{id}}">{{title}}</a></li>
-                                    {{/each}}
-                                </ul>
-                            </li>
-                            {{!-- <li><a href="#">Age Group</a>
-                                <ul class="menu_330">
-                                    {{#each agegroups}}
-                                        <li><a href="/about-us/overview-for-employers/">{{name}}</a></li>
-                                    {{/each}}
-                                </ul>
-                            </li> --}}
-                            <li><a href="#">Distance Away</a>
-                                <ul class="menu_330">
-                                    {{#each distances}}
-                                        <li><a href="#">{{name}}</a></li>
-                                    {{/each}}
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
             <div class="career-rip"></div>
         </div>
         <span onclick="openNav()" class="eng-filter-button">Filters</span>
@@ -87,13 +33,26 @@
 
         <div id="engSidebar" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <div class="eng-sidebar-filters">
-                <select>
+            <div class="eng-sidebar-filters" >
+                <select id="eng-resourcetypefilter" class="eng-filteritem">
                     <option value="" disabled selected>Resource Type</option>
                     {{#each resourcetypes}}
-                        <option class="{{cssclass}}" value="{{id}}">{{title}}</li>
+                        <option class="{{cssclass}}" value="{{id}}">{{title}}</option>
                     {{/each}}
                 </select>
+                <select id="eng-diatancefilter" class="eng-filteritem">
+                    <option value="" disabled selected>Distance Away</option>
+                    {{#each distances}}
+                        <option class="{{cssclass}}" value="{{id}}">{{name}}</option>
+                    {{/each}}
+                </select>
+                <div >
+                    <label for="agerange" id="agerangelabel">Age range:</label>
+                    <input type="text" id="agerange" readonly ">
+                </div>
+                
+                <div id="slider-range" class="eng-filteritem"></div>
+
             </div>
         </div>
     </body>
