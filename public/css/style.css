@@ -4470,12 +4470,15 @@ body.careers.eng-login .header-rip {
 .eng-filter-button {
   z-index:1; 
   position:fixed; 
-  top:35%;
-  left:10px; 
+  top:47.5%;
+  left:-14px; 
   padding:10px; 
   background:#000; 
   color:#fff; 
   border:solid 2px #aaa;
+  border-top: solid 0px transparent;
+  transform: rotate(270deg);
+  text-align: center;
 }
 .eng-sidebar-filters {
   padding:5px;
