@@ -4473,9 +4473,9 @@ body.careers.eng-login .header-rip {
   top:47.5%;
   left:0px;
   padding:0 10px 5px 10px; 
-  background:#111; 
+  background:#5a5080; 
   color:#fff; 
-  border:solid 2px #aaa;
+  border:solid 2px #70C4C6;
   border-top: solid 0px transparent;
   transform: rotate(270deg);
   transform-origin: left top;
@@ -4523,11 +4523,11 @@ select.eng-filteritem, .eng-filteritem {
   z-index: 1; /* Stay on top */
   top: 35%; /* Stay at the top */
   left: -4px;
-  background-color: #111; /* Black*/
+  background-color: #5a5080; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-  border:solid 2px #aaa;
+  border:solid 2px #70C4C6;
 }
 
 /* The navigation menu links */
