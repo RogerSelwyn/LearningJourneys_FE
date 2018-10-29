@@ -4471,14 +4471,23 @@ body.careers.eng-login .header-rip {
   z-index:1; 
   position:fixed; 
   top:47.5%;
-  left:-14px; 
-  padding:10px; 
-  background:#000; 
+  left:0px;
+  padding:0 10px 5px 10px; 
+  background:#111; 
   color:#fff; 
   border:solid 2px #aaa;
   border-top: solid 0px transparent;
   transform: rotate(270deg);
+  transform-origin: left top;
   text-align: center;
+  font-family: VAGRoundedLTCom-Bold, 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  transition: 0.5s;
+  cursor: pointer;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  z-index: 2;
 }
 .eng-sidebar-filters {
   padding:5px;
@@ -4513,11 +4522,12 @@ select.eng-filteritem, .eng-filteritem {
   position: fixed; /* Stay in place */
   z-index: 1; /* Stay on top */
   top: 35%; /* Stay at the top */
-  left: 0;
+  left: -4px;
   background-color: #111; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  border:solid 2px #aaa;
 }
 
 /* The navigation menu links */
@@ -4533,15 +4543,6 @@ select.eng-filteritem, .eng-filteritem {
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
   color: #f1f1f1;
-}
-
-/* Position and style the close button (top right corner) */
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */

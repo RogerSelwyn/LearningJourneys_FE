@@ -17,10 +17,15 @@ $(function(){
 
 /* Set the width of the side navigation to 250px */
 function openNav() {
-    document.getElementById("engSidebar").style.width = "300px";
+    var openwidth = 300;
+    var buttonposition = openwidth - 6;
+    var currentwidth = $( "#engSidebar" ).css("width");
+    if (openwidth + "px" == currentwidth) {
+        document.getElementById("engSidebar").style.width = "0";
+        document.getElementById("engSidebarBtn").style.left = "0";
+    } else {
+        document.getElementById("engSidebar").style.width = openwidth + "px";
+        document.getElementById("engSidebarBtn").style.left = buttonposition + "px";
+    }
 }
 
-/* Set the width of the side navigation to 0 */
-function closeNav() {
-    document.getElementById("engSidebar").style.width = "0";
-}
