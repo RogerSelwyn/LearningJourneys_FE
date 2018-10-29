@@ -6,6 +6,7 @@
     <div class="article-content" style="clear:both">
         <h2>{{title}}</h2>
         <p>{{breaklines resource}}</p>
+        <h4 id="eng-distance">&nbsp;</h4>
     </div>
     <div class="article-image">
         <a href="/detail/{{id}}">
@@ -24,5 +25,7 @@
     {{#if username}}
         <a class="orange-btn download-link" href="/review/{{id}}" >Review&nbsp;></a>       
     {{/if}}
-    <a class="orange-btn download-link" href="/detail/{{id}}" >Read More&nbsp;></a>        
+    <a class="orange-btn download-link" href="/detail/{{id}}" >Read More&nbsp;></a>   
+    <div id="eng-lat" style="display:none">{{lat}}</div>     
+    <div id="eng-lng" style="display:none">{{lng}}</div>     
 </article>

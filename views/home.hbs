@@ -24,8 +24,10 @@
             <div class="career-rip"></div>
         </div>
         <div class="article-column eng-article-column" style="clear:both">
-           {{#each resources}}
-                {{> resource username=../session.username }} 
+            {{#each resources}}
+                <div class="eng-resources">
+                    {{> resource username=../session.username }} 
+                </div>
             {{/each}}
         </div>  
         {{> footer}}
@@ -47,11 +49,12 @@
                 </select>
                 <div >
                     <label for="agerange" id="agerangelabel">Age range:</label>
-                    <input type="text" id="agerange" readonly ">
+                    <input type="text" id="agerange" readonly >
                 </div>
                 
                 <div id="slider-range" class="eng-filteritem"></div>
            </div>
         </div>
+        
     </body>
 </html>

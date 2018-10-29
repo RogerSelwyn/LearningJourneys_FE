@@ -1,7 +1,9 @@
 const axios = require('axios');
 const _ = require('lodash');
+const googlemaps = require('../utilities/googlemaps');
 
 var getHome = async (req, res, next) => {
+  
     var filterreq = false
     if (req.session.subjectfilters) {
         filterreq = true;
@@ -61,6 +63,16 @@ var getHome = async (req, res, next) => {
             } catch (e) {
                 console.error(e); 
             };
+
+            var response = null;
+            if (resource.resource_location != null) {
+                response = await googlemaps.geocode({address:resource.resource_location.location});
+            }
+            if (response != null) {
+                resource.lat = response[0].geometry.location.lat;
+                resource.lng = response[0].geometry.location.lng;
+            }
+        
         };
 
     } catch (e) {
