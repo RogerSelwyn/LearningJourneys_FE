@@ -11,18 +11,21 @@ var getDetail = async (req, res) => {
     var id = parseInt(req.params.id, 10);
     try {
         const resourcePromise = axios.get(process.env.RESTAPIURL+ 'resources/' + id +'/');
-        const averageRatingPromise = axios.get(process.env.RESTAPIURL+ 'resources/' + id + '/get_average_rating/');
         const feedbackPromise = axios.get(process.env.RESTAPIURL+ 'feedback_full/?resource=' + id);
-        const [resourceData, averageRatingData, feedbackData] = await Promise.all([resourcePromise, averageRatingPromise, feedbackPromise]);
+        const [resourceData, feedbackData] = await Promise.all([resourcePromise, feedbackPromise]);
         var resource = resourceData.data;
-        var averageRating = averageRatingData.data;
         var feedback = feedbackData.data;
     }  catch (e) {
         console.error(e); 
     };
-    resource.averageRating = Math.round(averageRating.average_rating*2)/2;
+    try {
+        var ratingData = await axios.get(process.env.RESTAPIURL+ 'resources/' + id + '/get_average_rating/');
+        resource.averageRating = Math.round(ratingData.data.average_rating*2)/2;
+    } catch (e) {
+        console.error(e); 
+    };
+
     resource.feedback = feedback;
-    console.log(feedback);
 
     var response = null;
     if (resource.resource_location != null) {
